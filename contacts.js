@@ -32,9 +32,9 @@ async function addContact(name, email, phone) {
   const contacts = await listContacts();
   const newContact = {
     id: nanoid(),
-    ...name,
-    ...email,
-    ...phone,
+    name,
+    email,
+    phone,
   };
   contacts.push(newContact);
   await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
